@@ -1,0 +1,19 @@
+universe = docker
+RequestCpus = 4
++JobFlavour = "espresso"
+
+docker_image = hplegion/ebisim
+
+executable = ./test.py
+
+should_transfer_files = YES
+when_to_transfer_output = ON_EXIT
+
+transfer_input_files = test.py
+transfer_output_files = test_output.pickle
+
+output          = output/ebisim.$(ClusterId).$(ProcId).out
+error           = error/ebisim.$(ClusterId).$(ProcId).err
+log             = log/ebisim.$(ClusterId).$(ProcId).log
+
+queue
